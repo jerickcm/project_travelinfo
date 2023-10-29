@@ -1,17 +1,19 @@
 <script>
-import { Head, Link } from "@inertiajs/vue3";
-import { ref, defineEmits } from "vue";
-
+import { Link } from "@inertiajs/vue3";
 export default {
+    components: { Link },
     props: ["data"],
+    setup(props, { attrs, slots, emit, expose }) {
+        return {};
+    },
 };
 </script>
 <template>
     <div
         class="city-card bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white p-4 rounded-lg"
     >
-        <a
-            :href="data.link"
+        <Link
+            :href="route('city', data.link)"
             class="block p-4 bg-blue-400 rounded-md hover:bg-blue-700 transition duration-300"
         >
             <h3
@@ -21,7 +23,7 @@ export default {
             </h3>
             <p class="text-justify py-1">{{ data.description }}</p>
             <div class="w-full h-64 image-class" :class="data.class"></div>
-        </a>
+        </Link>
     </div>
 </template>
 
