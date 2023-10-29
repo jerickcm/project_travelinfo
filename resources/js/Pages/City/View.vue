@@ -33,18 +33,18 @@ export default {
 
         onMounted(async () => {
             loading.value = true;
-            console.log("This code runs onMounted");
+        
             form.city_name = route().params.name;
 
             await getCity(form.city_name);
             await getWeatherByCity({ ...form }).then(() => {
                 loading.value = false;
-                console.log("Api loading done");
+           
             });
 
             dynamicBackgroundImage.value = city.value.url;
         });
-        console.log("This code runs after onMounted");
+     
         return {
             city,
             weather,
